@@ -10,9 +10,10 @@ import java.beans.PropertyChangeListener;
  */
 public class LoginPage extends JFrame {
 
-
+        public static String username; //Username and
+        public static String password; //Password made global variables for ActionListeners
+        public static String applicationName = "Application"; //Come up with cool name for application later
 public static void login() {
-        String applicationName = "Application"; //Come up with cool name for application later
         JFrame loginFrame = new JFrame(); //Creates a window, essentially
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         loginFrame.setLocationRelativeTo(null); //Start position will exist on most screens because it isn't specific
@@ -29,6 +30,7 @@ public static void login() {
         GridBagConstraints c = new GridBagConstraints();
         c.gridx = 2;
         c.gridy = -1;
+        c.anchor = GridBagConstraints.CENTER;
 
         //Create labels
         loginPanel.add(new JLabel(String.format(applicationName + ": LOGIN")), c);
@@ -59,8 +61,8 @@ public static void login() {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        String username = usernameField.getText();
-                        String password = passwordField.getText(); //Deprecated and replaced by getPassword()
+                            username = usernameField.getText();
+                            password = passwordField.getText(); //Deprecated and replaced by getPassword()
                         //But, for our current purposes, it is easiest to get the password in the form of a string
                     }
                 }
