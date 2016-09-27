@@ -1,6 +1,7 @@
 package com.company;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * Created by Luke on 9/24/16.
