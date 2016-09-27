@@ -13,18 +13,20 @@ public class LoginPage extends JFrame {
         public static String username; //Username and
         public static String password; //Password made global variables for ActionListeners
         public static String applicationName = "Application"; //Come up with cool name for application later
+        private static JFrame loginFrame = new JFrame(); //Creates a window, essentially
+
 public static void login() {
-        JFrame loginFrame = new JFrame(); //Creates a window, essentially
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         loginFrame.setLocationRelativeTo(null); //Start position will exist on most screens because it isn't specific
         loginFrame.setResizable(true);
         loginFrame.setSize(1000, 600);
         loginFrame.setTitle(applicationName);
         loginFrame.setVisible(true);
-        JPanel loginPanel = new JPanel(new GridBagLayout()); //Creates new panel in window
-        loginPanel.setBackground(Color.white);
-        loginFrame.getContentPane().add(loginPanel); //getContentPane() adjusts the size of the panel automatically
-        //based on what is in the loginFrame container (I think)
+        loginFrame.setBackground(Color.white);
+        JPanel loginPanel = new JPanel(new GridBagLayout()); // Creates new panel in window.
+        loginFrame.add(loginPanel); /*getContentPane() adjusts the size of the panel automatically
+        * based on what is in the loginFrame container (I think). If this doesn't work, add getContentPane()
+        * back in*/
 
         //Create GridBag constraints for window layout
         GridBagConstraints c = new GridBagConstraints();
@@ -61,9 +63,11 @@ public static void login() {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                            username = usernameField.getText();
+                        ErrorFrame.error("Test Error"); //Test error for Errorframe, uncomment below lines and delete this one
+                        // when file I/O is ready
+                           /* username = usernameField.getText();
                             password = passwordField.getText(); //Deprecated and replaced by getPassword()
-                        //But, for our current purposes, it is easiest to get the password in the form of a string
+                        //But, for our current purposes, it is easiest to get the password in the form of a string */
                     }
                 }
         );
@@ -77,13 +81,17 @@ public static void login() {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        loginFrame.dispose(); //Closes window
-                        System.exit(0); //Ends Process
+                        quit();
                     }
                 }
         );
         c.gridx = 6;
         c.gridy = 2;
         loginPanel.add(quit, c);
+    }
+
+    public static void quit() {
+        loginFrame.dispose();
+        System.exit(0); //Ends Process
     }
 }

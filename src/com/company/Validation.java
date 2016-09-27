@@ -7,23 +7,25 @@ import java.util.*;
  */
 public class Validation {
 
-    public static void usernameIndex() throws IOException { //FileReader will throw FileNotFoundException
+    public static void usernameIndex() { //FileReader will throw FileNotFoundException
 
         int arrayPosition = 0; //ArrayList position index
         String input;
-        String fileLocation = "/Users/thesecretaccount/IdeaProjects/yourfuturecustomers/src/usrdata/usernames.txt"; //replace with proper location if necessary
-
-        ArrayList<String[]> usernameArray = new ArrayList<String[]>(); //Arraylist for storing strings
+        String fileLocation = "usernames.txt"; //replace with proper location if necessary
+        String[] usernameReferenceArray = null;
+        ArrayList<String> usernameArrayList = new ArrayList<>(); //Arraylist for storing strings
 
         try {
             Scanner readFile = new Scanner(new BufferedReader(new FileReader(fileLocation)));
 
             while (readFile.hasNextLine()) {
                 input = readFile.nextLine(); //Using nextLine() because nextLine() considers spaces and doesn't restart at \n
-                String[] usernameReferenceArray = input.split(","); //Saves username strings into an array at the commas
+                usernameReferenceArray = input.split(","); //Saves username strings into an array at the commas
+            }
 
-                for (int )
-
+            for (int i = 0; i < usernameReferenceArray.length; i++) {
+                usernameArrayList.add(i, usernameReferenceArray[i]);
+                System.out.println(usernameArrayList.get(i));
             }
         }
         catch(Exception e){
