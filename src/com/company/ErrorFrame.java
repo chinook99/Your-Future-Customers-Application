@@ -6,13 +6,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by thesecretaccount on 9/25/16.
+ * Created by Luke on 9/25/16.
  */
 public class ErrorFrame extends JFrame{
 
     public static void error(String exceptionType) {
 
-        JFrame error = new JFrame(); //Create JFrame
+        JFrame error = new JFrame(); // Create JFrame
         error.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         error.setLocationRelativeTo(null); // Start position will exist on most screens because it isn't specific
         error.setResizable(true);
@@ -20,7 +20,6 @@ public class ErrorFrame extends JFrame{
         error.setTitle(LoginPage.applicationName + " Error: " + exceptionType); // Displays exception type
         error.setVisible(true);
         error.setBackground(Color.WHITE);
-
         JPanel errorPanel = new JPanel(new GridBagLayout()); // Create JPanel for error JFrame
         error.add(errorPanel); // If this doesn't work, add getContentPane() back in
 
