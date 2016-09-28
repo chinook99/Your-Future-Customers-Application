@@ -30,7 +30,6 @@ public class Validation {
 
             for (int i = 0; i < usernameReferenceArray.length; i++) {
                 usernameArrayList.add(i, usernameReferenceArray[i]);
-                System.out.println(usernameArrayList.get(i)); //Just to verify that it works
             }
         }
         catch(Exception e){
@@ -61,7 +60,6 @@ public class Validation {
 
             for (int i = 0; i < passwordReferenceArray.length; i++) {
                 passwordArrayList.add(i, passwordReferenceArray[i]);
-                System.out.println(passwordArrayList.get(i)); //Just to verify that it works
             }
         }
         catch(Exception e){
@@ -71,8 +69,36 @@ public class Validation {
 
     }
 
-    public static void validate() {
-        // Insert code for comparing position in array of username and password
-        // for validation here
+    public static boolean validate() {
+        usernameIndex();
+        passwordIndex();
+        int usernameIndexValue = usernameMatches(LoginPage.username);
+        int passwordIndexValue = passwordMatches(LoginPage.password);
+        if (checksOut(usernameIndexValue, passwordIndexValue) == true){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
+
+    public static int usernameMatches(String username) {
+        int iNameElement = usernameArrayList.indexOf(username);
+        return iNameElement;
+    }
+
+    public static int passwordMatches(String password){
+        int iPassElement = passwordArrayList.indexOf(password);
+        return iPassElement;
+    }
+
+    public static boolean checksOut(int usernameMatches, int passwordMatches){
+        if (usernameMatches == passwordMatches && usernameMatches != -1) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 }

@@ -62,14 +62,14 @@ public static void login() {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        // ErrorFrame.error("Test Error"); //Test error for Errorframe, uncomment below lines and delete this one
-                        // when file I/O is ready
-                        Validation.usernameIndex();
-                        Validation.passwordIndex();
-                        System.out.println();
-                           /* username = usernameField.getText();
-                            password = passwordField.getText(); //Deprecated and replaced by getPassword()
-                        // But, for our current purposes, it is easiest to get the password in the form of a string */
+                        username = usernameField.getText();
+                        password = passwordField.getText();
+                        if(Validation.validate() == true){
+                        System.out.println("Login success");
+                    }
+                    else {
+                            ErrorFrame.loginError();
+                    }
                     }
                 }
         );
