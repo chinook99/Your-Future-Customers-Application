@@ -12,11 +12,11 @@ public class Validation {
 
     public static void usernameIndex() {
 
-        //Define variables inside method so the names can be recycled
-        //as needed between username and password verification
+        // Define variables inside method so the names can be recycled
+        // as needed between username and password verification
         int arrayPosition = 0; //ArrayList position index
         String input;
-        //Don't add file extension on the end of the file if it's in the same package
+        // Don't add file extension on the end of the file if it's in the same package
         InputStream usernameInputStream = Validation.class.getResourceAsStream("usernames");
         String[] usernameReferenceArray = null;
 
@@ -43,7 +43,7 @@ public class Validation {
 
     public static void passwordIndex() {
 
-        //Recycle variable names from usernameIndex()
+        // Recycle variable names from usernameIndex()
         int arrayPosition = 0; //ArrayList position index
         String input;
         //Don't add file extension on the end of the file if it's in the same package
@@ -54,8 +54,8 @@ public class Validation {
             Scanner readFile = new Scanner(passwordInputStream);
 
             while (readFile.hasNextLine()) {
-                input = readFile.nextLine(); //Using nextLine() because nextLine() considers spaces and doesn't restart at \n
-                passwordReferenceArray = input.split(","); //Saves password strings into an array at the commas
+                input = readFile.nextLine(); // Using nextLine() because nextLine() considers spaces and doesn't restart at \n
+                passwordReferenceArray = input.split(","); // Saves password strings into an array at the commas
             }
 
             for (int i = 0; i < passwordReferenceArray.length; i++) {
@@ -98,6 +98,33 @@ public class Validation {
         }
         else {
             return false;
+        }
+    }
+
+    public static void createAccount(String createUsername, String createPassword) {
+        try {
+            File usernamesFile = new File("usernames");
+            File passwordsFile = new File("passwords");
+
+            if (!usernamesFile.exists()) {
+                ErrorFrame.error("Usernames File Does Not Exist!");
+            }
+            if (!passwordsFile.exists()) {
+                ErrorFrame.error("Passwords File Does Not Exist");
+            }
+
+            // Create filewriter, write to usernames file
+            FileWriter fw = new FileWriter(usernamesFile.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write("," + createUsername); // Don't forget commas
+
+            // Readdress filewriter to passwords file
+            fw = new FileWriter(passwordsFile.getAbsoluteFile());
+            bw.write(","+ createPassword);
+
+        } catch(Exception e){
+            String exceptionType = e.getMessage();
+            ErrorFrame.error(exceptionType); // Perhaps create a special error for failing to create a user
         }
     }
 
