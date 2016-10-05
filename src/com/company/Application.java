@@ -19,7 +19,7 @@ public class Application { // JTextArea and stuff needs to be arranged, IO syste
     private static String time;
     private static String user;
     private static JTextArea reportArea;
-    public static void Launch() { // Launch() method's applicationFrame and applicationPanel created by Luke on 10/4/16
+    public static void Launch() { // Launch() method's applicationFrame and applicationPanel
         applicationFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         applicationFrame.setLocationRelativeTo(null); // Start position will exist on most screens because it isn't specific
         applicationFrame.setResizable(true);
@@ -29,14 +29,13 @@ public class Application { // JTextArea and stuff needs to be arranged, IO syste
         applicationFrame.setBackground(Color.white);
         JPanel applicationPanel = new JPanel(new GridBagLayout()); // Creates new panel in window.
         applicationFrame.getContentPane().add(applicationPanel);
-        JTextArea reportArea = new JTextArea(15, 30);
         GridBagConstraints c = new GridBagConstraints();
-        c.gridx = 0;
+        c.gridx = 0; // Mira: Adjust these Constraints
         c.gridy = 0;
         applicationPanel.add(reportArea, c);
         // Create quit button
-        JButton quit = new JButton("Save");
-        quit.addActionListener(
+        JButton save = new JButton("Save"); // JJ made this JButton and ActionListener
+        save.addActionListener(
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -46,20 +45,29 @@ public class Application { // JTextArea and stuff needs to be arranged, IO syste
         );
         c.gridx = -2;
         c.gridy = 2;
-        applicationPanel.add(quit, c);
+        applicationPanel.add(save, c);
 
-        /* To JJ, Jourdan, Mira: You guys will probably stay within this class for the application,
+
+        JTextField reportTitle = new JTextArea(20); // JJ made this
+        reportTitle.setPreferredSize(200,30); // JJ made this
+        // Mira: Put constraints here
+        applicationPanel.add(reportTitle, c); // JJ made this
+        JTextArea reportArea = new JTextArea(15, 30); // JJ made this JTextArea
+
+        /*  You guys will probably stay within this class for the application,
          * so this is likely all you'll need. Just do whatever makes the program fits the algorithm
          * and then we'll worry about making it fancier. Below are a few methods that might make it
          * easier for you guys to read/write to files (since the file i/o system was my responsibility
          * anyway). Feel free to create a few more methods to make you guys' process easier.
          */
     }
-
+    
+    // checkPermissions() was created by Luke
     private static boolean checkPermissions() { //Checks to see if user has the permission to create/modify files/folders
         File outputDirectory = new File(String.format("/Users/" + System.getProperty("user.name") + "/Documents/TT"));
         return(outputDirectory.canWrite());
     }
+
 
     // writeToFile(String filename) was created by Luke
     // The purpose of writeToFile is to write files and create directories when necessary
