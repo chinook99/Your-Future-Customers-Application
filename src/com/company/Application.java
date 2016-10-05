@@ -60,6 +60,22 @@ public class Application { // JTextArea and stuff needs to be arranged, IO syste
          * easier for you guys to read/write to files (since the file i/o system was my responsibility
          * anyway). Feel free to create a few more methods to make you guys' process easier.
          */
+        JTable chart = new JTable(11,3); // jourdan's Section 
+        object columnNames[] = { "column 1", "column 2", "column 3"};
+        
+        Vector<String> rowOne = new Vector<String>();
+        rowOne.addElement("Row1-Column1");
+        rowOne.addElement("Row1-Column2");
+        rowOne.addElement("Row1-Column3");
+        
+        Vector<String> rowTwo = new Vector<String>();
+        rowTwo.addElement("Row2-Column1");
+        rowTwo.addElement("Row2-Column2");
+        rowTwo.addElement("Row2-Column3");
+        
+        Vector<String> rowThree = new vector<String>();
+        rowThree.addElement("Row3-Column1");
+        rowThree
     }
     
     // checkPermissions() was created by Luke
