@@ -10,7 +10,7 @@ public class FutureCustomers extends JFrame {
 
     public FutureCustomers() {
         LoginPage.login();
-    } //test comment
+    }
 
 
     public static void main(String[] args) {
