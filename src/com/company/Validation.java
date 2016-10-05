@@ -74,12 +74,7 @@ public class Validation {
         passwordIndex();
         int usernameIndexValue = usernameMatches(LoginPage.username);
         int passwordIndexValue = passwordMatches(LoginPage.password);
-        if (checksOut(usernameIndexValue, passwordIndexValue) == true){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return checksOut(usernameIndexValue, passwordIndexValue); // Removed if statement to cut down on needed code
     }
 
     public static int usernameMatches(String username) {
@@ -101,7 +96,8 @@ public class Validation {
         }
     }
 
-    public static void createAccount(String createUsername, String createPassword) {
+    //Create Account Function not in name
+    /*public static void createAccount(String createUsername, String createPassword) {
         try {
             File usernamesFile = new File("usernames");
             File passwordsFile = new File("passwords");
@@ -126,6 +122,6 @@ public class Validation {
             String exceptionType = e.getMessage();
             ErrorFrame.error(exceptionType); // Perhaps create a special error for failing to create a user
         }
-    }
+    }*/
 
 }
