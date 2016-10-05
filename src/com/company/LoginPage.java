@@ -79,8 +79,8 @@ public static void login() {
                         username = usernameField.getText();
                         password = passwordField.getText();
                         if(Validation.validate() == true){
-                        System.out.println("Login success"); // Temporary demonstration of login capability
-                            // Start work on actual application asap
+                        	loginFrame.dispose();
+                            Application.Launch();
                     }
                     else {
                             ErrorFrame.loginError();
@@ -114,7 +114,9 @@ public static void login() {
         System.exit(0); // Ends Process
     }
 
-    public static void newUser() {
+    // Ignore creating new accounts until application is fully functional, the ability to create
+    // accounts isn't even in the algorithm
+    /*public static void newUser() {
         newUserFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         newUserFrame.setLocationRelativeTo(null); // Start position will exist on most screens because it isn't specific
         newUserFrame.setResizable(false);
@@ -123,9 +125,10 @@ public static void login() {
         newUserFrame.setVisible(true);
         newUserFrame.setBackground(Color.white);
         JPanel userPanel = new JPanel(new GridBagLayout()); // Creates new panel in window.
-        newUserFrame.getContentPane().add(userPanel); /* getContentPane() adjusts the size of the panel automatically
-        * based on what is in the loginFrame container (I think). If this doesn't work, add getContentPane()
-        * back in */
+        newUserFrame.getContentPane().add(userPanel); //getContentPane() adjusts the size of the panel automatically
+        // based on what is in the loginFrame container (I think). If this doesn't work, add getContentPane()
+        // back in
+
 
         // Create GridBag constraints for window layout
         GridBagConstraints c = new GridBagConstraints();
@@ -180,7 +183,5 @@ public static void login() {
                         }
                     }
                 }
-        );
+        ); */
     }
-
-}
