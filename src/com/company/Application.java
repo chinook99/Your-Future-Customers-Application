@@ -60,6 +60,9 @@ public class Application { // JTextArea and stuff needs to be arranged, IO syste
          * easier for you guys to read/write to files (since the file i/o system was my responsibility
          * anyway). Feel free to create a few more methods to make you guys' process easier.
          */
+            // jourdan
+        JTable chart = new JTable(11,3);
+        applicationPanel.add(chart, c);
     }
     
     // checkPermissions() was created by Luke
