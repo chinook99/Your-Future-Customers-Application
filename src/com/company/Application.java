@@ -60,6 +60,44 @@ public class Application { // JTextArea and stuff needs to be arranged, IO syste
          * easier for you guys to read/write to files (since the file i/o system was my responsibility
          * anyway). Feel free to create a few more methods to make you guys' process easier.
          */
+          public JTable() // jourdan
+        JTable chart = new JTable();
+        
+        public JTable(int rows, int columns)
+        JTable chart = new JTable(11,3);
+       
+        public JTable(object rowData[][], object columnNames[])
+        object rowData[][] = { { "Row1-Column1", "Row1-Column2", "Row1-Column3"},
+                               { "Row2-Column1", "Row2-Column2", "Row2-Column3"},
+                               { "Row3-Column1", "Row3-Column2", "Row3-Column3"},
+                               { "Row4-Column1", "Row4-Column2", "Row4-Column3"},
+                               { "Row5-Column1", "Row5-Column2", "Row5-Column3"},
+                               { "Row6-Column1", "Row6-Column2", "Row6-Column3"},
+                               { "Row7-Column1", "Row7-Column2", "Row7-Column3"},
+                               { "Row8-Column1", "Row8-Column2", "Row8-Column3"},
+                               { "Row9-Column1", "Row9-Column2", "Row9-Column3"},
+                               { "Row10-Column1", "Row10-Column", "Row10-Colun3"} };
+        object columnNames[] = {"Column one", "Column two", "Column three"};
+        JTable chart = new JTable(rowData, columnNames);
+        
+        public JTable(TableModel model)
+            TableModel model = new DefaultTableModel(rowData, columnNames);
+        JTable chart = new JTable(model);
+        
+        public Jtable(TableModel model, TableColumnModel columnModel)
+            TableCOlumnModel columnModel = new DefaultTableColumnModel();
+        TableColumn firstColumn = new TableColumn(1);
+        firstColumn.setHeaderValue(headers[1]);
+        columnModel.addColumn(firstColumn);
+        TableColumn secondColumn = new TableColumn(0); 
+        secondColumn.setHeaderValue(headers[0]);
+        columnModel.addColumn(secondColumn);
+        JTable chart = new JTable(model, columnModel);
+        
+        public JTable(TableModel model, TableColumnModel columnModel, ListSelectionModel selectionModel)
+            ListSelectionModel selectionModel = new DefaultListSelectionModel();
+        selectionModel.setSelectionModel(ListSelectionModel.SINGLE_SELECTION);
+        JTable chart = new JTable(model, columnModel, selectionmodel);
     }
     
     // checkPermissions() was created by Luke
